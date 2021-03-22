@@ -95,9 +95,9 @@ export default function Home({ posts }) {
           <title>Gianluca's Blog</title>
           <meta name='viewport' content='initial-scale=1.0, width=device-width' />
         </Head>
-        <h1 className='mb-4 text-2xl font-extrabold'>Welcome To My Blog</h1>
+        <h1 className='mb-4 text-2xl font-extrabold text-white'>Welcome To My Blog</h1>
         <div className='flex justify-between mb-4'>
-          <h3 className='p-1 mr-2 font-bold text-1xl'>Search:</h3>
+          <h3 className='p-1 mr-2 font-bold text-white text-1xl'>Search:</h3>
           <input
             type='search'
             className='text-indigo-900 rounded outline-none focus:bg-indigo-100'

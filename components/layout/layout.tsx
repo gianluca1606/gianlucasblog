@@ -7,8 +7,8 @@ export interface props {
 }
 
 const Layout: FC<props> = ({ children }) => (
-  <div className="flex flex-col max-h-screen min-w-full min-h-screen bg-gradient-to-r from-gray-200 via-gray-300 to-gray-200">
-    <div className="relative flex-grow w-full h-full overflow-auto font-nunito">
+  <div className='flex flex-col max-h-screen min-w-full min-h-screen bg-gray-900'>
+    <div className='relative flex-grow w-full h-full overflow-auto font-nunito'>
       <Navbar />
       {children}
     </div>
