@@ -4,8 +4,14 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import TruncateMarkup from "react-truncate-markup";
 import Head from "next/head";
+import { motion, useViewportScroll, useSpring, useTransform } from "framer-motion";
 
 export default function Home({ posts }) {
+  const [isComplete, setIsComplete] = useState(false);
+  const { scrollYProgress } = useViewportScroll();
+  const yRange = useTransform(scrollYProgress, [0, 0.9], [0, 1]);
+  const pathLength = useSpring(yRange, { stiffness: 400, damping: 90 });
+
   const router = useRouter();
   const [mappedPosts, setMappedPosts] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
@@ -55,22 +61,46 @@ export default function Home({ posts }) {
     }
   }, [posts]);
 
+  useEffect(() => yRange.onChange((v) => setIsComplete(v >= 1)), [yRange]);
+
   return (
     <Layout>
-      <div className="flex flex-col items-center w-full h-full overflow-auto text-black md:mt-0 mt-28 ">
+      <svg className='fixed top-20 left-20 w-96 height-96' viewBox='0 0 60 60'>
+        <motion.path
+          fill='none'
+          strokeWidth='5'
+          stroke='white'
+          strokeDasharray='0 1'
+          d='M 0, 20 a 20, 20 0 1,0 40,0 a 20, 20 0 1,0 -40,0'
+          style={{
+            pathLength,
+            rotate: 90,
+            translateX: 5,
+            translateY: 5,
+            scaleX: -1, // Reverse direction of line animation
+          }}
+        />
+        <motion.path
+          fill='none'
+          strokeWidth='5'
+          stroke='white'
+          d='M14,26 L 22,33 L 35,16'
+          initial={false}
+          strokeDasharray='0 1'
+          animate={{ pathLength: isComplete ? 1 : 0 }}
+        />
+      </svg>
+      <div className='flex flex-col items-center w-full h-full overflow-auto text-black md:mt-0 mt-28 '>
         <Head>
           <title>Gianluca's Blog</title>
-          <meta
-            name="viewport"
-            content="initial-scale=1.0, width=device-width"
-          />
+          <meta name='viewport' content='initial-scale=1.0, width=device-width' />
         </Head>
-        <h1 className="mb-4 text-2xl font-extrabold">Welcome To My Blog</h1>
-        <div className="flex justify-between mb-4">
-          <h3 className="p-1 mr-2 font-bold text-1xl">Search:</h3>
+        <h1 className='mb-4 text-2xl font-extrabold'>Welcome To My Blog</h1>
+        <div className='flex justify-between mb-4'>
+          <h3 className='p-1 mr-2 font-bold text-1xl'>Search:</h3>
           <input
-            type="search"
-            className="text-indigo-900 rounded outline-none focus:bg-indigo-100"
+            type='search'
+            className='text-indigo-900 rounded outline-none focus:bg-indigo-100'
             value={searchTerm}
             onChange={handleChange}
           />
@@ -79,44 +109,44 @@ export default function Home({ posts }) {
           mappedPosts.map((p, index) => (
             <div
               key={index}
-              className="flex flex-col my-8 space-y-4 bg-indigo-50 rounded-xl xl:w-1/3"
+              className='flex flex-col my-8 space-y-4 bg-indigo-50 rounded-xl xl:w-1/3'
             >
               <img
-                className="cursor-pointer rounded-t-xl hover:shadow-2xl"
+                className='cursor-pointer rounded-t-xl hover:shadow-2xl'
                 src={p.mainImage}
                 onClick={() => router.push(`/post/${p.slug}`)}
               />
-              <div className="flex flex-col items-center w-full ">
+              <div className='flex flex-col items-center w-full '>
                 <h3
-                  className="text-3xl font-bold text-black cursor-pointer hover:underline"
+                  className='text-3xl font-bold text-black cursor-pointer hover:underline'
                   onClick={() => router.push(`/post/${p.slug}`)}
                 >
                   {p?.title}
                 </h3>
                 <TruncateMarkup lines={3}>
-                  <p className="w-5/6 mt-4 text-black ">
+                  <p className='w-5/6 mt-4 text-black '>
                     {p?.body[0]?.children[0]?.text}
                   </p>
                 </TruncateMarkup>
               </div>
 
-              <div className="flex justify-around">
-                <div className="flex items-center justify-center space-x-1 text-indigo-500">
+              <div className='flex justify-around'>
+                <div className='flex items-center justify-center space-x-1 text-indigo-500'>
                   <img
-                    className="w-10 h-10 mb-4 rounded-full cursor-pointer"
+                    className='w-10 h-10 mb-4 rounded-full cursor-pointer'
                     onClick={() => router.push(`/timeline`)}
                     src={p?.author?.picture}
                   />
-                  <span className="mb-4 font-extrabold">
+                  <span className='mb-4 font-extrabold'>
                     {p?.author?.name} on{" "}
-                    <time dateTime="2014-06-12" className="mb-4 font-extrabold">
+                    <time dateTime='2014-06-12' className='mb-4 font-extrabold'>
                       {new Date(p._updatedAt).toDateString()}
                     </time>
                   </span>
                 </div>
-                <div className="flex items-center justify-end p-4 mb-4 mr-4 space-x-2 text-indigo-100">
+                <div className='flex items-center justify-end p-4 mb-4 mr-4 space-x-2 text-indigo-100'>
                   {p.categories?.map((category, index) => (
-                    <h1 key={index} className="p-2 bg-pink-400 rounded">
+                    <h1 key={index} className='p-2 bg-pink-400 rounded'>
                       {" "}
                       {p.categories[index]}
                     </h1>
