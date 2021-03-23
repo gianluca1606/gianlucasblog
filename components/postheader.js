@@ -17,16 +17,20 @@ export default function Postbody({ image, date, title, author }) {
   return (
     <Fragment>
       {imageURL && <img src={imageURL} />}
-      <div className="flex flex-wrap items-center justify-between m-3 text-xl font-bold">
-        <div className="flex items-center">
-          <img src={author.picture} className="rounded-full w-7 h-7" />{" "}
-          <span className="ml-2">{author.name}</span>
+      <div className='flex flex-wrap items-center justify-between m-3 text-xl font-bold'>
+        <div className='flex items-center'>
+          {author && (
+            <Fragment>
+              <img src={author.picture} className='rounded-full w-7 h-7' />
+              <span className='ml-2'>{author.name}</span>{" "}
+            </Fragment>
+          )}
         </div>
         <p>
           Published on <Date dateString={date} />{" "}
         </p>
       </div>
-      <h1 className="inline-flex justify-center mt-5 text-6xl font-extrabold underline">
+      <h1 className='inline-flex justify-center mt-5 text-6xl font-extrabold underline'>
         {" "}
         {title}
       </h1>
