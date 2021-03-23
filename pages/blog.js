@@ -4,14 +4,8 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import TruncateMarkup from "react-truncate-markup";
 import Head from "next/head";
-import { motion, useViewportScroll, useSpring, useTransform } from "framer-motion";
 
 export default function Home({ posts }) {
-  const [isComplete, setIsComplete] = useState(false);
-  const { scrollYProgress } = useViewportScroll();
-  const yRange = useTransform(scrollYProgress, [0, 0.9], [0, 1]);
-  const pathLength = useSpring(yRange, { stiffness: 400, damping: 90 });
-
   const router = useRouter();
   const [mappedPosts, setMappedPosts] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
@@ -61,35 +55,8 @@ export default function Home({ posts }) {
     }
   }, [posts]);
 
-  useEffect(() => yRange.onChange((v) => setIsComplete(v >= 1)), [yRange]);
-
   return (
     <Layout>
-      <svg className='fixed top-20 left-20 w-96 height-96' viewBox='0 0 60 60'>
-        <motion.path
-          fill='none'
-          strokeWidth='5'
-          stroke='white'
-          strokeDasharray='0 1'
-          d='M 0, 20 a 20, 20 0 1,0 40,0 a 20, 20 0 1,0 -40,0'
-          style={{
-            pathLength,
-            rotate: 90,
-            translateX: 5,
-            translateY: 5,
-            scaleX: -1, // Reverse direction of line animation
-          }}
-        />
-        <motion.path
-          fill='none'
-          strokeWidth='5'
-          stroke='white'
-          d='M14,26 L 22,33 L 35,16'
-          initial={false}
-          strokeDasharray='0 1'
-          animate={{ pathLength: isComplete ? 1 : 0 }}
-        />
-      </svg>
       <div className='flex flex-col items-center w-full h-full overflow-auto text-black md:mt-0 mt-28 '>
         <Head>
           <title>Gianluca's Blog</title>

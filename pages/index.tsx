@@ -1,6 +1,7 @@
 import Head from "next/head";
 import Layout from "../components/layout/layout";
-import Typical from "react-typical";
+import Typing from "react-typing-animation";
+
 import { motion } from "framer-motion";
 import { DiCss3, DiNodejs, DiPostgresql } from "react-icons/di";
 import { SiTypescript, SiVuetify, SiIbm, SiJavascript, SiFirebase } from "react-icons/si";
@@ -116,21 +117,17 @@ export default function Home() {
               />
             </motion.div>
           </div>
-          <h1 className='mx-4 mt-4 text-xl font-bold text-center text-white text-opacity-90'>
-            <Typical
-              steps={[
-                "Hello I am Gianluca.",
-                2000,
-                "Welcome to my Personal Page.",
-                2000,
-                "Check my Blog out.",
-                2000,
-              ]}
-              loop={Infinity}
-              className='inline-block'
-              wrapper='p'
-            />
-          </h1>
+          <div className='mx-4 mt-20 text-xl font-bold text-center text-white text-opacity-90 md:mt-4'>
+            <Typing>
+              <span>Hello I am Gianluca.</span>
+              <br />
+              <span>Welcome to my Personal Page..</span>
+              <Typing.Backspace loop={true} count={1} delay={800} />
+              <br />
+              <span>Check my blog outt</span>
+              <Typing.Backspace loop={true} count={1} delay={800} />
+            </Typing>
+          </div>
         </div>
         <div className='flex justify-center mt-10 md:mt-0 md:items-center md:w-1/2 md:h-full '>
           <StackSection />
