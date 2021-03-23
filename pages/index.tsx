@@ -1,7 +1,6 @@
 import Head from "next/head";
 import Layout from "../components/layout/layout";
 import Typing from "react-typing-animation";
-
 import { motion } from "framer-motion";
 import { DiCss3, DiNodejs, DiPostgresql } from "react-icons/di";
 import {
@@ -20,7 +19,7 @@ type CardProps = {
 
 export const StackSection = () => {
   return (
-    <div className='flex flex-col items-center w-full bg-white lg:w-4/6 md:rounded-2xl h-5/6 lg:h-auto'>
+    <div className='flex flex-col items-center w-full overflow-hidden bg-white lg:w-4/6 md:rounded-2xl h-5/6 lg:h-auto'>
       <h1 className='mt-8 text-3xl font-extrabold'>About me:</h1>
       <p className='m-2 mx-4 font-semibold text-center md:text-xl'>
         I am a software Developer based in Remscheid, Germany. Currently I am going to
@@ -144,8 +143,15 @@ export default function Home() {
             </Typing>
           </div>
         </div>
-        <div className='flex justify-center mt-10 md:mt-0 md:items-center md:w-1/2 md:h-full '>
-          <StackSection />
+
+        <div className='flex justify-center mt-10 md:mt-0 md:items-center md:w-1/2 md:h-full'>
+          <motion.div
+            initial={{ scale: 0.3 }}
+            animate={{ scale: 1 }}
+            transition={{ duration: 0.9 }}
+          >
+            <StackSection />
+          </motion.div>
         </div>
       </div>
     </Layout>

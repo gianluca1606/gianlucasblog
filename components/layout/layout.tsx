@@ -8,7 +8,7 @@ export interface props {
 
 const Layout: FC<props> = ({ children }) => (
   <div className='relative flex flex-col max-h-screen min-w-full min-h-screen bg-gray-900'>
-    <img src='/Frame.png' className='absolute z-0 w-full h-full' />
+    <img src='/Frame.png' className='absolute z-0 w-full h-full opacity-50' />
     <div className='relative z-10 flex-grow object-cover w-full h-full overflow-auto font-nunito'>
       <Navbar />
       {children}

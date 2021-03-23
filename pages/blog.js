@@ -1,9 +1,10 @@
 import Layout from "../components/layout/layout";
 import imageUrlBuilder from "@sanity/image-url";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useRouter } from "next/router";
 import TruncateMarkup from "react-truncate-markup";
 import Head from "next/head";
+import useWindowSize from "../hooks/useWindowSize";
 
 export default function Home({ posts }) {
   const router = useRouter();
@@ -23,7 +24,6 @@ export default function Home({ posts }) {
           (categorie) => categorie.toLowerCase().indexOf(searchTerm) > -1
         )
     );
-
     setMappedPosts(result);
   }, [searchTerm]);
 
@@ -55,9 +55,56 @@ export default function Home({ posts }) {
     }
   }, [posts]);
 
+  //2.
+  const scrollingContainerRef = useRef();
+
+  if (process.browser) {
+    // 1.
+    const windowSize = useWindowSize();
+
+    // 3.
+    const data = {
+      ease: 0.1,
+      current: 0,
+      previous: 0,
+      rounded: 0,
+    };
+
+    // 4.
+    useEffect(() => {
+      setBodyHeight();
+    }, [windowSize.height]);
+
+    const setBodyHeight = () => {
+      document.body.style.height = `${
+        scrollingContainerRef.current.getBoundingClientRect().height
+      }px`;
+    };
+
+    // 5.
+    useEffect(() => {
+      requestAnimationFrame(() => smoothScrolling());
+    }, []);
+
+    const smoothScrolling = () => {
+      data.current = window.scrollY;
+      data.previous += (data.current - data.previous) * data.ease;
+      data.rounded = Math.round(data.previous * 100) / 100;
+
+      scrollingContainerRef.current.style.transform = `translateY(-${data.previous}px)`;
+
+      // Recursive call
+      requestAnimationFrame(() => smoothScrolling());
+    };
+    // client-side-only code
+  }
+
   return (
     <Layout>
-      <div className='flex flex-col items-center w-full h-full overflow-auto text-black md:mt-0 mt-28 '>
+      <div
+        className='flex flex-col items-center w-full h-full overflow-auto text-black md:mt-0 mt-28'
+        ref={scrollingContainerRef}
+      >
         <Head>
           <title>Gianluca's Blog</title>
           <meta name='viewport' content='initial-scale=1.0, width=device-width' />
