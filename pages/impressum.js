@@ -65,4 +65,10 @@ export default function Home() {
     </Layout>
   );
 }
-export const getStaticProps = async () => {};
+export const getStaticProps = async () => {
+  return {
+    props: {
+      posts: [],
+    },
+  };
+};
