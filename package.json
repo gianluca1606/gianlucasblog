@@ -28,7 +28,7 @@
     "react-icons": "^4.2.0",
     "react-syntax-highlighter": "^15.4.3",
     "react-truncate-markup": "^5.1.0",
-    "react-typing-animation": "^1.6.2",
+    "react-typist": "^2.0.5",
     "react-youtube": "^7.13.1",
     "tailwindcss": "^2.0.2"
   },

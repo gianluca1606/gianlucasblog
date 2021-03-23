@@ -1,7 +1,8 @@
 import Head from "next/head";
+import React, { useState, useEffect } from "react";
 import Layout from "../components/layout/layout";
-import Typing from "react-typing-animation";
 import { motion } from "framer-motion";
+import Typist from "react-typist";
 import { DiCss3, DiNodejs, DiPostgresql } from "react-icons/di";
 import {
   SiTypescript,
@@ -11,7 +12,6 @@ import {
   SiFirebase,
   SiGraphql,
 } from "react-icons/si";
-import React from "react";
 
 type CardProps = {
   text: string;
@@ -111,6 +111,12 @@ export const StackSection = () => {
 };
 
 export default function Home() {
+  const [count, setCount] = useState(1);
+
+  useEffect(() => {
+    setCount(1);
+  }, [count]);
+
   return (
     <Layout>
       <div className='flex flex-wrap items-center justify-center w-full h-full mt-24'>
@@ -118,7 +124,7 @@ export default function Home() {
           <title>Gianluca Santos Latina</title>
           <meta name='viewport' content='initial-scale=1.0, width=device-width' />
         </Head>
-        <div className='flex items-center justify-center mt-4 md:flex-col h-1/2 md:mt-0 md:w-1/2 md:h-full'>
+        <div className='flex items-center justify-start w-full mt-4 md:flex-col h-1/2 md:mt-0 md:w-1/2 md:h-full'>
           <div>
             <motion.div
               initial={{ scale: 0.3 }}
@@ -132,15 +138,17 @@ export default function Home() {
             </motion.div>
           </div>
           <div className='mx-4 mt-20 text-xl font-bold text-center text-white text-opacity-90 md:mt-4'>
-            <Typing>
-              <span>Hello I am Gianluca.</span>
-              <br />
-              <span>Welcome to my Personal Page..</span>
-              <Typing.Backspace loop={true} count={1} delay={800} />
-              <br />
-              <span>Check my blog outt</span>
-              <Typing.Backspace loop={true} count={1} delay={800} />
-            </Typing>
+            {count ? (
+              <Typist avgTypingDelay={50} onTypingDone={() => setCount(0)}>
+                <span> Hello I am Gianluca.</span>
+                <Typist.Backspace count={20} delay={3000} />
+                <span> Welcome to my Personal Page.</span>
+                <Typist.Backspace count={30} delay={3000} />
+                <span> Check my blog out.</span>
+              </Typist>
+            ) : (
+              ""
+            )}
           </div>
         </div>
 
