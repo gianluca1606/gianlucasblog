@@ -19,7 +19,12 @@ type CardProps = {
 
 export const StackSection = () => {
   return (
-    <div className='flex flex-col items-center w-full overflow-hidden bg-white lg:w-4/6 md:rounded-2xl h-5/6 lg:h-auto'>
+    <motion.div
+      initial={{ scale: 0.3 }}
+      animate={{ scale: 1.0 }}
+      transition={{ duration: 0.9 }}
+      className='flex flex-col items-center w-full overflow-hidden bg-white lg:w-4/6 md:rounded-2xl h-5/6 lg:h-auto'
+    >
       <h1 className='mt-8 text-3xl font-extrabold'>About me:</h1>
       <p className='m-2 mx-4 font-semibold text-center md:text-xl'>
         I am a software Developer based in Remscheid, Germany. Currently I am going to
@@ -106,7 +111,7 @@ export const StackSection = () => {
           <SiGraphql className='w-16 h-16 rounded-full' />
         </motion.div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
@@ -153,13 +158,7 @@ export default function Home() {
         </div>
 
         <div className='flex justify-center mt-10 md:mt-0 md:items-center md:w-1/2 md:h-full'>
-          <motion.div
-            initial={{ scale: 0.3 }}
-            animate={{ scale: 1 }}
-            transition={{ duration: 0.9 }}
-          >
-            <StackSection />
-          </motion.div>
+          <StackSection />
         </div>
       </div>
     </Layout>
