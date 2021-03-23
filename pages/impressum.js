@@ -33,8 +33,8 @@ export default function Home() {
 
           <h1 className='w-full mt-10 mb-4 text-2xl'>Copyright</h1>
           <div className='w-full whitespace-pre-wrap border-b-2 border-white'>
-            This site and all content provided in it belongs to Simon Hutchinson and is
-            copyrighted by law. The content on this site may not be copied, published,
+            This site and all content provided in it belongs to Gianluca Santos Latina and
+            is copyrighted by law. The content on this site may not be copied, published,
             distributed, transmitted, printed or resold without prior permission. All
             other copyright and trademark material is, and will remain, the property of
             their respective owners.
