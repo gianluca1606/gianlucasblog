@@ -32,7 +32,7 @@ function CommentForm({ _id }) {
 
   if (isSubmitting) {
     // Returns a "Submitting comment" state if being processed
-    return <h3>Submitting comment…</h3>;
+    return <h3 className='text-white'>Submitting comment…</h3>;
   }
   if (hasSubmitted) {
     // Returns the data that the user submitted for them to preview after submission
@@ -51,51 +51,47 @@ function CommentForm({ _id }) {
   }
 
   return (
-    <form
-      onSubmit={handleSubmit(onSubmit)}
-      className="w-full max-w-lg"
-      disabled
-    >
-      <input ref={register} type="hidden" name="_id" value={_id} />
+    <form onSubmit={handleSubmit(onSubmit)} className='w-full max-w-lg ' disabled>
+      <input ref={register} type='hidden' name='_id' value={_id} />
 
-      <label className="block mb-5">
-        <span className="text-gray-700">Name</span>
+      <label className='block mb-5 text-white'>
+        <span className=''>Name</span>
         <input
-          name="name"
+          name='name'
           ref={register({ required: true })}
-          className="block w-full mt-1 form-input"
-          placeholder="John Appleseed"
+          className='block w-full mt-1 text-black form-input'
+          placeholder='John Appleseed'
         />
       </label>
 
-      <label className="block mb-5">
-        <span className="text-gray-700">Email</span>
+      <label className='block mb-5 text-white'>
+        <span className=''>Email</span>
         <input
-          name="email"
-          type="email"
+          name='email'
+          type='email'
           ref={register({ required: true })}
-          className="block w-full mt-1 form-input"
-          placeholder="your@email.com"
+          className='block w-full mt-1 text-black form-input'
+          placeholder='your@email.com'
         />
       </label>
 
-      <label className="block mb-5">
-        <span className="text-gray-700">Comment</span>
+      <label className='block mb-5'>
+        <span className='text-white'>Comment</span>
         <textarea
           ref={register({ required: true })}
-          name="comment"
-          className="block w-full mt-1 form-textarea"
-          rows="8"
-          placeholder="Enter your message."
+          name='comment'
+          className='block w-full mt-1 text-black form-textarea'
+          rows='8'
+          placeholder='Enter your message.'
         ></textarea>
       </label>
 
       {/* errors will return when field validation fails  */}
-      {errors.exampleRequired && <span>This field is required</span>}
+      {errors.exampleRequired && <span class='text-red-500'>This field is required</span>}
 
       <button
-        type="submit"
-        className="px-4 py-2 font-bold text-white bg-indigo-500 rounded shadow hover:bg-indigo-800 focus:shadow-outline focus:outline-none"
+        type='submit'
+        className='px-4 py-2 font-bold text-white bg-indigo-500 rounded shadow hover:bg-indigo-800 focus:shadow-outline focus:outline-none'
       >
         Send comment
       </button>

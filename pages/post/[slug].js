@@ -2,34 +2,26 @@ import Layout from "../../components/layout/layout";
 import CommentForm from "../../components/commentform";
 import Moreposts from "../../components/moreposts";
 import { Comments } from "../../components/comments";
+import { getAllPostsWithSlug } from "../../lib/api";
 import Postbody from "../../components/postbody";
 import Postheader from "../../components/postheader";
 import Head from "next/head";
 
-export const Post = ({
-  title,
-  body,
-  image,
-  comments,
-  _id,
-  author,
-  moreposts,
-  date,
-}) => {
+export const Post = ({ title, body, image, comments, _id, author, moreposts, date }) => {
   return (
     <Layout>
       <Head>
-        <title>{title}</title>
-        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+        <title>{title} - Blog</title>
+        <meta name='viewport' content='initial-scale=1.0, width=device-width' />
       </Head>
-      <div className="relative flex flex-col items-center justify-center">
-        <div className="flex flex-col mt-32 overflow-auto bg-white md:mt-10 md:w-4/6 h-4/6 rounded-xl">
+      <div className='relative flex flex-col items-center justify-center'>
+        <div className='flex flex-col mt-32 overflow-auto bg-white md:mt-10 md:w-4/6 h-4/6 rounded-xl'>
           <Postheader author={author} title={title} image={image} date={date} />
           <Postbody body={body} />
         </div>
         <Moreposts moreposts={moreposts} />
       </div>
-      <div className="flex flex-col items-center mb-6">
+      <div className='flex flex-col items-center mb-6'>
         <Comments comments={comments} />
         <CommentForm _id={_id} />
       </div>
@@ -49,8 +41,8 @@ const postFields = `
   'author': author->{name, 'picture': image.asset->url},
 `;
 
-export const getServerSideProps = async (pageContext) => {
-  const pageSlug = pageContext.query.slug;
+export const getStaticProps = async (pageContext) => {
+  const pageSlug = pageContext.params.slug;
   if (!pageSlug) {
     return {
       notFound: true,
@@ -101,9 +93,23 @@ export const getServerSideProps = async (pageContext) => {
         moreposts: getUniquePosts(moreposts.result, pageSlug),
         date: post.date,
       },
+      revalidate: 10,
     };
   }
 };
+
+export async function getStaticPaths() {
+  const allPosts = await getAllPostsWithSlug();
+  return {
+    paths:
+      allPosts?.map((post) => ({
+        params: {
+          slug: post.slug,
+        },
+      })) || [],
+    fallback: true,
+  };
+}
 
 const getUniquePosts = (posts, slug) => {
   const uniqueposts = posts.filter((post) => post.slug != slug);

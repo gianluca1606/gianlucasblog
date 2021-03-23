@@ -130,7 +130,7 @@ export default function Home({ posts }) {
   );
 }
 
-export const getServerSideProps = async (pageContext) => {
+export const getStaticProps = async (pageContext) => {
   const postFields = `
   _id,
   name,
@@ -166,6 +166,7 @@ export const getServerSideProps = async (pageContext) => {
       props: {
         posts: result.result,
       },
+      revalidate: 10,
     };
   }
 };

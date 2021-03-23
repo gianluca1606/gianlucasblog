@@ -4,7 +4,15 @@ import Typing from "react-typing-animation";
 
 import { motion } from "framer-motion";
 import { DiCss3, DiNodejs, DiPostgresql } from "react-icons/di";
-import { SiTypescript, SiVuetify, SiIbm, SiJavascript, SiFirebase } from "react-icons/si";
+import {
+  SiTypescript,
+  SiVuetify,
+  SiIbm,
+  SiJavascript,
+  SiFirebase,
+  SiGraphql,
+} from "react-icons/si";
+import React from "react";
 
 type CardProps = {
   text: string;
@@ -25,11 +33,10 @@ export const StackSection = () => {
         with CMS Systems such as Sanity.
       </p>
       <p className='m-4 font-semibold text-center md:text-xl'>
-        In the future I hope to get better at Typescript and learn Graphql since i think
-        that's a very robust tool for a project idea that I have.
+        Currently I am also learning GraphQL
       </p>
       <h1 className='mt-4 space-x-2 font-bold text-center md:text-xl '>
-        This is the Stack that i am currently using:
+        In my free time I like to play soccer and work on diverse projects.
       </h1>
 
       <div className='flex mt-8 space-x-4'>
@@ -91,6 +98,14 @@ export const StackSection = () => {
         >
           <SiTypescript className='w-16 h-16 rounded-full' />
         </motion.div>
+
+        <motion.div
+          initial={{ scale: 0.3 }}
+          animate={{ scale: 1 }}
+          transition={{ duration: 0.9 }}
+        >
+          <SiGraphql className='w-16 h-16 rounded-full' />
+        </motion.div>
       </div>
     </div>
   );
@@ -136,3 +151,5 @@ export default function Home() {
     </Layout>
   );
 }
+
+export const getStaticProps = async () => {};
