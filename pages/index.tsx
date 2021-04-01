@@ -128,6 +128,10 @@ export default function Home() {
         <Head>
           <title>Gianluca Santos Latina</title>
           <meta name='viewport' content='initial-scale=1.0, width=device-width' />
+          <meta
+            name='google-site-verification'
+            content='1S6Ti6dAjqBnYRFOFMx32q7J0EnD49owDa-yxGumgUY'
+          />
         </Head>
         <div className='flex items-center justify-start w-full mt-4 md:flex-col h-1/2 md:mt-0 md:w-1/2 md:h-full'>
           <div>
