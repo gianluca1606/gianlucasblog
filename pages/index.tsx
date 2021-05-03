@@ -28,7 +28,7 @@ export const StackSection = () => {
       <h1 className='mt-8 text-3xl font-extrabold'>About me:</h1>
       <p className='m-2 mx-4 font-semibold text-center md:text-xl'>
         I am a software Developer based in Remscheid, Germany. Currently I am going to
-        school and working for the Bohle AG, where I am encarged of programming the ERP
+        school and working for the Bohle AG, where I am commited to programming the ERP
         System.
       </p>
       <p className='m-2 font-semibold text-center md:text-xl'>
@@ -37,10 +37,12 @@ export const StackSection = () => {
         with CMS Systems such as Sanity.
       </p>
       <p className='m-4 font-semibold text-center md:text-xl'>
-        Currently I am also learning GraphQL
+        I also tried a lof of languages and frameworks out. `(Nest JS,Vue, Quasar,Golang,
+        Laravel and more)`
       </p>
       <h1 className='mt-4 space-x-2 font-bold text-center md:text-xl '>
-        In my free time I like to play soccer and work on diverse projects.
+        Altough i spend a lot of time programming and i like a lot to work on on projects
+        in my free time, my biggest love is to play soccer.
       </h1>
 
       <div className='flex mt-8 space-x-4'>
@@ -115,7 +117,7 @@ export const StackSection = () => {
   );
 };
 
-export default function Home() {
+function Home() {
   const [count, setCount] = useState(1);
 
   useEffect(() => {
@@ -168,3 +170,5 @@ export default function Home() {
     </Layout>
   );
 }
+
+export default Home;
