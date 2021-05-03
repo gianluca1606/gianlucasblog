@@ -1,7 +1,7 @@
 import Layout from "../components/layout/layout";
 import Head from "next/head";
 
-export default function Home() {
+export default function Timeline() {
   return (
     <Layout>
       <div className='flex items-center justify-center mt-28'>
@@ -75,11 +75,3 @@ export default function Home() {
     </Layout>
   );
 }
-
-export const getStaticProps = async () => {
-  return {
-    props: {
-      posts: [],
-    },
-  };
-};

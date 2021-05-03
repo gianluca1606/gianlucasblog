@@ -2,7 +2,7 @@ import Head from "next/head";
 import Layout from "../components/layout/layout";
 import Link from "next/link";
 
-export default function Home() {
+export default function NotFound() {
   return (
     <Layout>
       <div className='flex flex-col items-center justify-center w-full h-full mt-48 md:mt-64 '>
@@ -24,11 +24,3 @@ export default function Home() {
     </Layout>
   );
 }
-
-export const getStaticProps = async () => {
-  return {
-    props: {
-      posts: [],
-    },
-  };
-};

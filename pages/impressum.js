@@ -1,7 +1,7 @@
 import Head from "next/head";
 import Layout from "../components/layout/layout";
 
-export default function Home() {
+export default function Impressum() {
   return (
     <Layout>
       <div className='flex flex-wrap items-center justify-center w-full h-full mt-24 text-white md:mt-0'>
@@ -65,10 +65,3 @@ export default function Home() {
     </Layout>
   );
 }
-export const getStaticProps = async () => {
-  return {
-    props: {
-      posts: [],
-    },
-  };
-};
