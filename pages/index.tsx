@@ -37,8 +37,9 @@ export const StackSection = () => {
         with CMS Systems such as Sanity.
       </p>
       <p className='m-4 font-semibold text-center md:text-xl'>
-        I also tried a lof of languages and frameworks out. `(Nest JS,Vue, Quasar,Golang,
-        Laravel and more)`
+        I also tried a lof of programming languages and frameworks out.{" "}
+        {`(Nest JS,Vue, Quasar,Golang,
+        Laravel and more)`}
       </p>
       <h1 className='mt-4 space-x-2 font-bold text-center md:text-xl '>
         Altough i spend a lot of time programming and i like a lot to work on on projects
