@@ -32,7 +32,7 @@ const Navbar: FC = () => {
                 : "text-xl font-semibold tracking-tight text-white"
             }
           >
-            <Link href='/'>Gianluca Santos</Link>
+            <Link href='/'>Gianluca</Link>
           </span>
         </div>
 
