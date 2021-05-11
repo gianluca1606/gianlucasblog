@@ -129,7 +129,7 @@ function Home() {
     <Layout>
       <div className='flex flex-wrap items-center justify-center w-full h-full mt-24'>
         <Head>
-          <title>Gianluca Santos Latina</title>
+          <title>Gianluca </title>
           <meta name='viewport' content='initial-scale=1.0, width=device-width' />
           <meta
             name='google-site-verification'
