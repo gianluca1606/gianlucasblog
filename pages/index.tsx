@@ -149,7 +149,7 @@ function Home() {
               <div
                 className='block w-48 h-48 mx-auto -mt-16 bg-center bg-cover rounded-full shadow-xl lg:hidden'
                 style={{
-                  backgroundImage: 'url("https://source.unsplash.com/MP0IUfwrn0A")',
+                  backgroundImage: 'url("picture3.jpeg")',
                 }}
               />
               <h1 className='pt-8 text-3xl font-bold lg:pt-0'>Gianluca Santos Latina</h1>
@@ -172,7 +172,7 @@ function Home() {
                 >
                   <path d='M10 20a10 10 0 1 1 0-20 10 10 0 0 1 0 20zm7.75-8a8.01 8.01 0 0 0 0-4h-3.82a28.81 28.81 0 0 1 0 4h3.82zm-.82 2h-3.22a14.44 14.44 0 0 1-.95 3.51A8.03 8.03 0 0 0 16.93 14zm-8.85-2h3.84a24.61 24.61 0 0 0 0-4H8.08a24.61 24.61 0 0 0 0 4zm.25 2c.41 2.4 1.13 4 1.67 4s1.26-1.6 1.67-4H8.33zm-6.08-2h3.82a28.81 28.81 0 0 1 0-4H2.25a8.01 8.01 0 0 0 0 4zm.82 2a8.03 8.03 0 0 0 4.17 3.51c-.42-.96-.74-2.16-.95-3.51H3.07zm13.86-8a8.03 8.03 0 0 0-4.17-3.51c.42.96.74 2.16.95 3.51h3.22zm-8.6 0h3.34c-.41-2.4-1.13-4-1.67-4S8.74 3.6 8.33 6zM3.07 6h3.22c.2-1.35.53-2.55.95-3.51A8.03 8.03 0 0 0 3.07 6z' />
                 </svg>{" "}
-                Remscheid - 25.0000° N, 71.0000° W
+                Remscheid - 51° 10' 47.39" N, 7° 11' 33.00" W
               </p>
               <div>
                 {" "}
@@ -196,17 +196,6 @@ function Home() {
                 </a>
               </div>
               <div className='flex flex-wrap items-center justify-between w-4/5 pb-16 mx-auto mt-6 lg:pb-0 lg:w-full'>
-                <a className='link' href='#' data-tippy-content='@facebook_handle'>
-                  <svg
-                    className='h-6 text-gray-600 fill-current hover:text-blue-700'
-                    role='img'
-                    viewBox='0 0 24 24'
-                    xmlns='http://www.w3.org/2000/svg'
-                  >
-                    <title>Facebook</title>
-                    <path d='M22.676 0H1.324C.593 0 0 .593 0 1.324v21.352C0 23.408.593 24 1.324 24h11.494v-9.294H9.689v-3.621h3.129V8.41c0-3.099 1.894-4.785 4.659-4.785 1.325 0 2.464.097 2.796.141v3.24h-1.921c-1.5 0-1.792.721-1.792 1.771v2.311h3.584l-.465 3.63H16.56V24h6.115c.733 0 1.325-.592 1.325-1.324V1.324C24 .593 23.408 0 22.676 0' />
-                  </svg>
-                </a>
                 <a
                   className='link'
                   href='https://twitter.com/gianluca1606'
