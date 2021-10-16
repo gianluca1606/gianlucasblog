@@ -1,0 +1,46 @@
+{
+  "projects": [
+    {
+      "title": "IP-Tracker",
+      "link": "https://ip-tracker-bb052.web.app/",
+      "description": "Simple IP-Tracker that display its location on Google Maps",
+      "languages": "ReactJS",
+      "picture": "iptracker.png"
+    },
+    {
+      "title": "UPS-Node JS",
+      "link": "https://www.npmjs.com/package/ups-easy-shipping",
+      "description": "Library Wrapper of UPS XML Apis, not continued anymore",
+      "languages": "NodeJS",
+      "picture": "package.jpeg"
+    },
+    {
+      "title": "Twitter Clone",
+      "link": "https://qwitter-cf022.web.app/spa#/",
+      "description": "Twitter clone with Quasar",
+      "languages": "QUASAR, VueJS",
+      "picture": "qwitter.png"
+    },
+    {
+      "title": "Wichtel Algorithmus",
+      "link": "https://github.com/gianluca1606/WichtelProjekt",
+      "description": "Algorithmus for a School work in C++ ",
+      "languages": "C++",
+      "picture": "gifts.jpeg"
+    },
+    {
+      "title": "Reaction Timer",
+      "link": "https://reactiontimer-bbd9c.web.app/",
+      "languages": "VueJS",
+      "description": "Reaction Timer to test how fast you are",
+      "picture": "reactiontimer.png"
+    },
+    {
+      "title": "linked in clone",
+      "link": "https://linked-in-da07c.web.app/",
+      "languages": "ReactJS",
+      "description": "Just a simple Linked in Clone",
+      "picture": "linkedinclone.png"
+    }
+  ]
+}

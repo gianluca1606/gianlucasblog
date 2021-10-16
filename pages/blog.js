@@ -5,6 +5,7 @@ import { useRouter } from "next/router";
 import TruncateMarkup from "react-truncate-markup";
 import Head from "next/head";
 import useWindowSize from "../hooks/useWindowSize";
+import { AiOutlineSearch } from "react-icons/ai";
 
 export default function Home({ posts }) {
   const router = useRouter();
@@ -102,22 +103,35 @@ export default function Home({ posts }) {
   return (
     <Layout>
       <div
-        className='flex flex-col items-center w-full h-full overflow-auto text-black md:mt-0 mt-28'
+        className='flex flex-col items-center w-full h-full overflow-auto text-indigo-600 md:mt-0 mt-28'
         ref={scrollingContainerRef}
       >
         <Head>
           <title>Gianluca's Blog</title>
           <meta name='viewport' content='initial-scale=1.0, width=device-width' />
         </Head>
-        <h1 className='mb-4 text-2xl font-extrabold text-white'>Welcome To My Blog</h1>
+        <h1 className='mb-4 text-2xl font-extrabold text-white'>
+          Everything about Software developing and more
+        </h1>
         <div className='flex justify-between mb-4'>
-          <h3 className='p-1 mr-2 font-bold text-white text-1xl'>Search:</h3>
-          <input
-            type='search'
-            className='text-indigo-900 rounded outline-none focus:bg-indigo-100'
-            value={searchTerm}
-            onChange={handleChange}
-          />
+          <div className='p-8'>
+            <div className='flex items-center bg-white rounded-full shadow-xl'>
+              <input
+                className='w-full px-6 py-4 leading-tight text-gray-700 rounded-l-full focus:outline-none'
+                id='search'
+                value={searchTerm}
+                onChange={handleChange}
+                type='text'
+                placeholder='Search'
+              />
+
+              <div className='p-4'>
+                <span className='flex items-center justify-center w-12 h-12 p-2 text-white bg-blue-500 rounded-full cursor-pointer hover:bg-blue-400 focus:outline-none'>
+                  <AiOutlineSearch />
+                </span>
+              </div>
+            </div>
+          </div>
         </div>
         {mappedPosts.length ? (
           mappedPosts.map((p, index) => (
@@ -132,7 +146,7 @@ export default function Home({ posts }) {
               />
               <div className='flex flex-col items-center w-full '>
                 <h3
-                  className='text-3xl font-bold text-black cursor-pointer hover:underline'
+                  className='text-3xl font-bold cursor-pointer hover:underline'
                   onClick={() => router.push(`/post/${p.slug}`)}
                 >
                   {p?.title}
