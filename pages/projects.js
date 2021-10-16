@@ -9,7 +9,7 @@ export default function Timeline() {
           <title>Gianluca's Timeline</title>
           <meta name='viewport' content='initial-scale=1.0, width=device-width' />
         </Head>
-        <div className='container px-5 mx-auto '>
+        <div className='container px-5 mx-auto mt-24 md:mt-0 '>
           <div className='flex flex-wrap w-full p-4 mb-4'>
             <div className='w-full mb-6 lg:mb-0'>
               <h1 className='mb-2 text-5xl font-bold text-white sm:text-4xl title-font'>
