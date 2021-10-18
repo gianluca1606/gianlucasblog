@@ -1,8 +1,9 @@
 import React from "react";
+import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer className='z-10 flex items-center justify-center w-full bg-black '>
+    <footer className='relative z-10 flex items-center justify-center w-full bg-black '>
       <div className='flex items-center justify-center mt-2 '>
         <a
           href='https://www.youtube.com/channel/UCh7wGcxRVe7H373ttpO8F9w'
@@ -47,6 +48,13 @@ export default function Footer() {
           </svg>
         </a>
       </div>
+      <li className='absolute right-0 mb-4 border-t md:border-none md:mb-0'>
+        <Link href='/impressum'>
+          <a className='block px-4 py-2 text-white no-underline md:text-xl md:font-bold md:inline-block hover:text-gray-600'>
+            Legal Advices
+          </a>
+        </Link>
+      </li>
     </footer>
   );
 }

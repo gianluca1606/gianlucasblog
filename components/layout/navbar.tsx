@@ -92,19 +92,6 @@ const Navbar: FC = () => {
               </a>
             </Link>
           </li>
-          <li className='mb-4 border-t md:border-none md:mb-0'>
-            <Link href='/impressum'>
-              <a
-                className={
-                  router.pathname === "/impressum"
-                    ? "block px-4 py-2 text-xl font-bold  no-underline bg-black rounded md:inline-block text-white border-t"
-                    : "block px-4 py-2 text-xl font-bold text-white no-underline bg-black rounded md:inline-block hover:text-gray-600"
-                }
-              >
-                Legal Notice
-              </a>
-            </Link>
-          </li>
         </ul>
       </nav>
     </div>
