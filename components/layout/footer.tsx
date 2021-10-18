@@ -48,9 +48,9 @@ export default function Footer() {
           </svg>
         </a>
       </div>
-      <li className='absolute right-0 '>
+      <li className='absolute right-0'>
         <Link href='/impressum'>
-          <a className='px-4 py-2 text-white no-underline md:text-xl md:font-bold hover:text-gray-600'>
+          <a className='text-white no-underline md:px-4 md:py-2 md:text-xl md:font-bold hover:text-gray-600'>
             Legal Advices
           </a>
         </Link>
