@@ -149,7 +149,7 @@ function Home() {
               <div
                 className='block w-48 h-48 mx-auto -mt-16 bg-center bg-cover rounded-full shadow-xl lg:hidden'
                 style={{
-                  backgroundImage: 'url("me.jpg")',
+                  backgroundImage: 'url("me.JPG")',
                 }}
               />
               <h1 className='pt-8 text-3xl font-bold lg:pt-0'>Gianluca Santos Latina</h1>
@@ -250,7 +250,7 @@ function Home() {
           <div className='w-full lg:w-2/5'>
             {/* Big profile image for side bar (desktop) */}
             <img
-              src='me.jpg'
+              src='me.JPG'
               className='hidden rounded-none shadow-2xl lg:rounded-lg lg:block'
             />
             {/* Image from: http://unsplash.com/photos/MP0IUfwrn0A */}
