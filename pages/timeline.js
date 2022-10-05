@@ -42,9 +42,9 @@ export default function Timeline() {
             {/* <!-- left --> */}
             <div className='flex flex-row-reverse md:contents'>
               <div className='col-start-1 col-end-5 p-4 my-4 ml-auto bg-blue-500 shadow-md rounded-xl'>
-                <h3 className='mb-1 text-lg font-semibold'>Next Step</h3>
+                <h3 className='mb-1 text-lg font-semibold'>OBI Smart Technologies GmbH</h3>
                 <p className='leading-tight text-justify animate-bounce'>
-                  Coming Soon...
+                  2022 - now IT specialist/application developer
                 </p>
               </div>
               <div className='relative col-start-5 col-end-6 mr-10 md:mx-auto'>
@@ -65,7 +65,7 @@ export default function Timeline() {
               <div className='col-start-6 col-end-10 p-4 my-4 mr-auto bg-blue-500 shadow-md rounded-xl'>
                 <h3 className='mb-1 text-lg font-semibold'>Bohle AG</h3>
                 <p className='leading-tight text-justify'>
-                  2019-2021 Training/education IT specialist/application developer
+                  2019-2022 Training/education IT specialist/application developer
                 </p>
               </div>
             </div>
